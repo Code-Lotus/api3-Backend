@@ -20,6 +20,11 @@ public vendedor!: string;
 public produto!: Produto;
 public cliente!: Cliente;
 public valor!: number;
+
+public get getValor(){
+    return this.valor
+ }
 }
+
 
 export default Venda;
