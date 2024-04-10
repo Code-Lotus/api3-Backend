@@ -1,7 +1,6 @@
 // sale.model.ts
 
 import { Model } from 'sequelize-typescript';
-import sequelize from 'sequelize';
 import Produto from './produto';
 import Cliente from './cliente';
 
