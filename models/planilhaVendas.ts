@@ -16,4 +16,8 @@ export default class PlanilhaVendas {
         const data = new Date(this._data.getTime());
         return data
     }
+
+    get valor(): number {
+        return this._valor
+    }
 }

@@ -1,42 +1,29 @@
 export default class Cliente {
-    private dataCadastro: Date
-    private cpfcnpj: string
-    private nome: string
-    private segmento: string
+    private _cnpjcpf: string
+    private _nome: string
+    private _segmento: string
+    private _dataCadastro: Date
     
+    constructor(_cnpjcpf: string, _nome: string, _segmento: string, _dataCadastro: Date) {
+        this._cnpjcpf = _cnpjcpf
+        this._nome = _nome
+        this._segmento = _segmento
+        this._dataCadastro = _dataCadastro
+    }
 
-    constructor(dataCadastro:Date,cpfcnpj:string,nome:string,segmento:string){
-        this.dataCadastro = dataCadastro
-        this.cpfcnpj = cpfcnpj
-        this.nome = nome
-        this.segmento = segmento
+    public get cpfcnpj(): string {
+        return this._cnpjcpf
     }
 
-    public get getDataCadastro(): Date {
-        return this.dataCadastro
+    public get nome(): string {
+        return this._nome
     }
-    public set setDataCadastro(value: Date) {
-        this.dataCadastro = value
+
+    public get segmento(): string {
+        return this._segmento
     }
-    public get getcpfcnpj(): string {
-            return this.cpfcnpj
+
+    public get dataCadastro(): Date {
+        return this._dataCadastro
     }
-    public set setcpfcnpj(value: string) {
-        this.cpfcnpj = value
-    }
-    
-    public get getnome(): string {
-            return this.nome
-        }
-    public set setnome(value: string) {
-            this.nome = value
-        }
-    
-    public get getsegmento(): string {
-            return this.segmento
-        }
-    public set setsegmento(value: string) {
-            this.segmento = value
-        }
-    
 }
