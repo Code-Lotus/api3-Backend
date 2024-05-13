@@ -2,6 +2,8 @@
 
 
 export default class DeletarVenda {
+
+    
     public deletar(){
         con.connect(function(err:Error) {
             if (err) throw err;

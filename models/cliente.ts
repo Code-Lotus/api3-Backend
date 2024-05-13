@@ -1,26 +1,36 @@
 export default class Cliente {
-    private _cnpjcpf: string
-    private _nome: string
-    private _segmento: string
+
+    private cliente_id: Number
+    private cliente_cpfcnpj: string
+    private cliente_nome: string
+    private cliente_segmento: string
     private _dataCadastro: Date
     
-    constructor(_cnpjcpf: string, _nome: string, _segmento: string, _dataCadastro: Date) {
-        this._cnpjcpf = _cnpjcpf
-        this._nome = _nome
-        this._segmento = _segmento
+    constructor(cliente_id: Number, cliente_cpfcnpj: string, cliente_nome: string, cliente_segmento: string, _dataCadastro: Date) {
+        this.cliente_id=cliente_id
+        this.cliente_nome = cliente_nome
+        this.cliente_cpfcnpj = cliente_cpfcnpj
+        this.cliente_segmento = cliente_segmento
         this._dataCadastro = _dataCadastro
     }
+    
+    public get getCliente_id(): Number {
+        return this.cliente_id
+    }
+    public set setCliente_id(value: Number) {
+        this.cliente_id = value
+    }
 
-    public get cpfcnpj(): string {
-        return this._cnpjcpf
+    public get getCliente_cpfcnpj(): string {
+        return this.cliente_cpfcnpj
     }
 
     public get nome(): string {
-        return this._nome
+        return this.cliente_nome
     }
 
-    public get segmento(): string {
-        return this._segmento
+    public get getCliente_segmento(): string {
+        return this.cliente_segmento
     }
 
     public get dataCadastro(): Date {
