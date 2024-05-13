@@ -1,22 +1,22 @@
-import Venda from "../vendas"
+
 
 
 export default class AtualizarVenda{
-    public vendas:Array<Venda>
+   
+public atualizar(){
 
 
-    constructor(venda:Array<Venda>){
-        this.vendas = venda
-    }
+    con.connect(function(err:Error) {
+        if (err) throw err;
+        var sql = "UPDATE vendas SET nomecoluna = 'valorNovoInserido' WHERE nomeColuna = 'valorParaAcharESubstituir'";
+        con.query(sql, function (err:Error, result:any) {
+          if (err) throw err;
+          console.log(result.affectedRows + " record(s) updated");
+        });
+      });
+}
 
-
-        //recebe qual venda vai mudar
-        //achar ela
-        // ve qual o atributo
-        //entrar no atributo a mudar
-        //salvar novo atributo 
-        // mandar de volta
-
+   
 
 
         

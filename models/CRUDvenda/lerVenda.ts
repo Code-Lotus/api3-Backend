@@ -1,4 +1,3 @@
-import Venda from "../vendas"
 
 
 
@@ -12,7 +11,7 @@ export default class LerVenda{
 
         con.connect(function(err:Error) {
             if (err) throw err;
-            con.query('SELECT a coluna que for selecionar FROM vendas ', function (err, result, fields) {
+            con.query('SELECT a coluna que for selecionar FROM vendas ', function (err:Error, result:any, fields) {
               if (err) throw err;
               console.log(fields + result);
             });
