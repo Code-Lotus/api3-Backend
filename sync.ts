@@ -1,5 +1,5 @@
-import Venda from './models/vendas';
-import sequelize from './config/sequelize';
+import Venda from './src/models/vendas';
+import sequelize from './src/config/sequelize';
 
 
 async function syncModels() {
