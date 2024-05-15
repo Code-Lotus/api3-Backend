@@ -1,5 +1,5 @@
 import Venda from './src/models/vendas';
-import sequelize from './src/config/sequelize';
+import sequelize from './src/naosei/config/sequelize';
 
 
 async function syncModels() {
