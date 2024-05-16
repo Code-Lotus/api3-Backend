@@ -15,15 +15,28 @@ export default class CreateUsuarioService {
             throw new Error("Preencha todos os campos")
         }
 
-        const usuario = await prismaClient.usuario.create({
-            data:{
-                usuario_nome,
-                usuario_cpf,
-                usuario_email,
-                usuario_senha,
-                administrador //: false
-            }
-        })
+        let usuario;
+        if(!usuario_nome || !usuario_email || !usuario_cpf || !usuario_senha){
+            usuario = await prismaClient.usuario.create({
+                data:{
+                    usuario_nome,
+                    usuario_cpf,
+                    usuario_email,
+                    usuario_senha,
+                    administrador: false
+                }
+            })
+        } else {
+            usuario = await prismaClient.usuario.create({
+                data:{
+                    usuario_nome,
+                    usuario_cpf,
+                    usuario_email,
+                    usuario_senha,
+                    administrador //: false
+                }
+            })
+        }
 
         return usuario
     }
