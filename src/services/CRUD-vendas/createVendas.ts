@@ -5,30 +5,43 @@ import { PrismaClient,Prisma, usuario, cliente  } from "@prisma/client";
 
     interface CreateVendaProps {
             venda_data:Date;
-            venda_produto:Number;
-            cliente_id:Number;
-            venda_valor:Number;
-            usuario_id:Number;
-            cliente:string;
-            usuario:string;
+            venda_produto:string;
+            cliente_id:number;
+            venda_valor:number;
+            usuario_id:number;
+            // cliente:string;
+            // usuario:string;
 }
  
 
 
 export default class CreateVenda{
 
-    async execute({venda_data, venda_produto,cliente_id,venda_valor,usuario_id,cliente ,usuario}:CreateVendaProps){
+    async execute({venda_data, venda_produto,cliente_id,venda_valor,usuario_id}:CreateVendaProps){
 
-        let venda: Prisma.vendasCreateInput
-        venda={
+       
 
-            venda_data: 'de onde vai receber'
-            venda_produto:
-            cliente_id:
-            venda_valor:
-            usuario_id:
-            cliente:
-            usuario:
+       let venda: Prisma.vendasCreateInput ={
+
+            venda_data: venda_data,
+            venda_produto: venda_produto,
+            
+            cliente:{
+
+                connect:{
+
+                    cliente_id
+                }
+            },
+
+            venda_valor:venda_valor,
+            usuario:{
+
+                connect:{
+
+                    usuario_id
+                }
+            }
 
         }
 
