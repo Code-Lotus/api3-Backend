@@ -17,7 +17,7 @@ export default class CreateUsuarioService {
 
         let usuario;
         if(!usuario_nome || !usuario_email || !usuario_cpf || !usuario_senha){
-            usuario = await prismaClient.usuario.create({
+            usuario = await prismaClient.usuarios.create({
                 data:{
                     usuario_nome,
                     usuario_cpf,
@@ -27,7 +27,7 @@ export default class CreateUsuarioService {
                 }
             })
         } else {
-            usuario = await prismaClient.usuario.create({
+            usuario = await prismaClient.usuarios.create({
                 data:{
                     usuario_nome,
                     usuario_cpf,
