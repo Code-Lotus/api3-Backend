@@ -7,6 +7,7 @@ const prisma= new PrismaClient ()
 
 
 export default class DeltarUmaVenda{
+  
      async execute (idVenda:number) {
 
     const deleteVenda = await prisma.vendas.delete({

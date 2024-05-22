@@ -1,13 +1,15 @@
 import {PrismaClient} from "@prisma/client"
-import prismaClient from "../../prisma"
 
 const prisma = new PrismaClient
 
 export default class  ReadVendas{
+    
     async execute () {
+
     const listaVendas = await prisma.vendas.findMany()
 
     return listaVendas
+}
 }
 
 
@@ -28,4 +30,3 @@ export class ReadPorIdTabelaVendas{
         
     }}
 
-}
