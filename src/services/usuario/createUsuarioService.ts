@@ -5,7 +5,7 @@ interface CreateUsuarioProps {
     usuario_cpf: string;
     usuario_email: string;
     usuario_senha: string;
-    administrador: boolean;
+    administrador: string;
 }
 
 export default class CreateUsuarioService {
@@ -23,7 +23,7 @@ export default class CreateUsuarioService {
                     usuario_cpf,
                     usuario_email,
                     usuario_senha,
-                    administrador: false
+                    administrador: "0"
                 }
             })
         } else {

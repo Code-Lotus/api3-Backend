@@ -1,31 +1,20 @@
 import prismaClient from "../../prisma";
 
 interface DeleteUsuarioProps {
-    id: number;
+    usuario_id: number;
 }
 
 export default class DeleteUsuarioService {
-    async execute({id}: DeleteUsuarioProps){
-        if(!id){
-            throw new Error("Solicitação inválida.")
+    async execute({usuario_id}: DeleteUsuarioProps){
+
+        if(!usuario_id) {
+            throw new Error("Preencha todos os campos")
         }
 
-        const findUsuario = await prismaClient.usuarios.findFirst({
+        let usuario = await prismaClient.usuarios.delete({
             where: {
-                usuario_id: id
+                usuario_id: usuario_id
             }
         })
-
-        if(!findUsuario){
-            throw new Error("Usuario não existe!")
-        }
-
-        await prismaClient.usuarios.delete({
-            where: {
-                usuario_id: findUsuario.usuario_id
-            }
-        })
-        
-        return {message: "Deletado com sucesso!"}
     }
 }

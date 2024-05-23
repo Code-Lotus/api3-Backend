@@ -15,6 +15,35 @@ export default class UpdateClienteService {
         }
 
         let cliente
-        // FAZER AS CONDIÇÕES
+        if(cliente_nome) {
+            cliente = await prismaClient.clientes.update({
+                where: {
+                    cliente_id: cliente_id
+                },
+                data: {
+                    cliente_nome: cliente_nome  
+                }
+            })
+        }if(cliente_cpfcnpj) {
+            cliente = await prismaClient.clientes.update({
+                where: {
+                    cliente_id: cliente_id
+                },
+                data: {
+                    cliente_cpfcnpj: cliente_cpfcnpj  
+                }
+            })
+        }if(cliente_segmento) {
+            cliente = await prismaClient.clientes.update({
+                where: {
+                    cliente_id: cliente_id
+                },
+                data: {
+                    cliente_segmento: cliente_segmento  
+                }
+            })
+        }
+
+        return cliente
     }
 }

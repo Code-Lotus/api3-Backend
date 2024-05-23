@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import ListUsuariosService from '../../services/usuario/listaUsuariosService';
 
-export default class ListUsuariosController {
+export default class ListaUsuariosController {
     async handle(request: FastifyRequest, reply: FastifyReply){
         const listaUsuariosService = new ListUsuariosService();
 

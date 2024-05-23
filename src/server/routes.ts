@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply} from "fastify";
 import CreateUsuarioController from "../controllers/usuario/createUsuarioController";
-import ListUsuariosController from "../controllers/usuario/listUsuariosController";
+import ListUsuariosController from "../controllers/usuario/listaUsuariosController";
 import DeleteUsuarioController from "../controllers/usuario/deleteUsuarioController";
-import ListVendasController from "../controllers/venda/listVendasController";
+import ListaVendasController from "../controllers/venda/listaVendasController"
 import CreateVendaController from "../controllers/venda/createVendaController";
 import ListaProdutoController from "../controllers/produto/listaProdutoController";
 import CreateProdutoController from "../controllers/produto/createProdutoController";
@@ -29,11 +29,15 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
         return new DeleteUsuarioController().handle(request, reply);
     })
 
+    fastify.put("/usuario", async (request: FastifyRequest, reply: FastifyReply) => {
+        // return new UpdateUsuarioController().handle(request, reply);
+    })
+
     //////////////////////////////////////////
 
     // Vendas
     fastify.get("/vendas", async (request: FastifyRequest, reply: FastifyReply) => {
-        return new ListVendasController().handle(request, reply);
+        return new ListaVendasController().handle(request, reply);
     })
 
     fastify.post("/venda", async (request: FastifyRequest, reply: FastifyReply) => {

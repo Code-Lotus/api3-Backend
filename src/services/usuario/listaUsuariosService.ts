@@ -1,6 +1,6 @@
 import prismaClient from "../../prisma";
 
-export default class ListUsuariosService {
+export default class ListaUsuariosService {
     async execute() {
         const usuarios = await prismaClient.usuarios.findMany();
 
