@@ -1,13 +1,15 @@
 import prismaClient from "../../prisma";
 
 interface UpdateProdutoProps {
-    produto_id: number
+    produto_id: number;
     produto_nome: string;
     produto_valor: number;
 }
 
 export default class UpdateProdutoService {
     async execute({ produto_id, produto_nome, produto_valor }: UpdateProdutoProps) {
+
+        // IF() SE ID NÃO FOR DECLARADO
 
         if(!produto_nome && !produto_valor) {
             throw new Error("Preencha no mínimo 1 campo")

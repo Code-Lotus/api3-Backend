@@ -11,8 +11,7 @@ export default class DeleteProdutoService {
             throw new Error("Preencha todos os campos")
         }
 
-        let produto;
-        produto = await prismaClient.produtos.delete({
+        let produto = await prismaClient.produtos.delete({
             where: {
                 produto_id: produto_id
             }

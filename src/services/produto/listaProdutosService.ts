@@ -1,6 +1,6 @@
 import prismaClient from "../../prisma";
 
-export default class ListaProdutoService {
+export default class ListaProdutosService {
     async execute() {
         const produtos = await prismaClient.produtos.findMany()
 

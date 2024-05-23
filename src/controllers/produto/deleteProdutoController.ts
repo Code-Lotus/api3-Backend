@@ -8,6 +8,6 @@ export default class DeleteProdutoController {
         const produtoService = new DeleteProdutoService()
         const produto = await produtoService.execute({ produto_id })
 
-        return "gg"
+        return `Produto ${produto_id} apagado`
     }
 }

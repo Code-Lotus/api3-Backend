@@ -1,11 +1,11 @@
 import fastify, { FastifyRequest, FastifyReply } from "fastify";
-import ListaProdutoService from "../../services/produto/listaProdutosService";
+import ListaProdutosService from "../../services/produto/listaProdutosService";
 
 export default class ListaProdutoController {
     async handle(request: FastifyRequest, reply: FastifyReply) {
-        const listaProdutoService = new ListaProdutoService()
+        const listaProdutosService = new ListaProdutosService()
 
-        const produtos = await listaProdutoService.execute()
+        const produtos = await listaProdutosService.execute()
 
         reply.send(produtos)
     }

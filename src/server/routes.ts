@@ -8,6 +8,10 @@ import ListaProdutoController from "../controllers/produto/listaProdutoControlle
 import CreateProdutoController from "../controllers/produto/createProdutoController";
 import UpdateProdutoController from "../controllers/produto/updateProdutoController";
 import DeleteProdutoController from "../controllers/produto/deleteProdutoController";
+import CreateClienteController from "../controllers/cliente/createClienteController";
+import ListaClientesController from "../controllers/cliente/listaClienteController";
+import UpdateClienteController from "../controllers/cliente/updateClienteController";
+import DeleteClienteController from "../controllers/cliente/deleteClienteController";
 // import { request } from "http";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
@@ -56,4 +60,21 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     })
 
     /////////////////////////////////////////////////////////////////////////////
+
+    // Clientes
+    fastify.get("/clientes", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListaClientesController().handle(request, reply)
+    })
+
+    fastify.post("/cliente", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new CreateClienteController().handle(request, reply)
+    })
+
+    fastify.put("/cliente", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new UpdateClienteController().handle(request, reply)
+    })
+
+    fastify.delete("/cliente", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new DeleteClienteController().handle(request, reply)
+    })
 }
