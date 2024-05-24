@@ -1,9 +1,9 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import ListUsuariosService from '../../services/usuario/listaUsuariosService';
+import ListaUsuariosService from '../../services/usuario/listaUsuariosService';
 
 export default class ListaUsuariosController {
     async handle(request: FastifyRequest, reply: FastifyReply){
-        const listaUsuariosService = new ListUsuariosService();
+        const listaUsuariosService = new ListaUsuariosService();
 
         const usuarios = await listaUsuariosService.execute();
 

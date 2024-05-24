@@ -5,7 +5,7 @@ interface DeleteUsuarioProps {
 }
 
 export default class DeleteUsuarioService {
-    async execute({usuario_id}: DeleteUsuarioProps){
+    async execute({ usuario_id }: DeleteUsuarioProps){
 
         if(!usuario_id) {
             throw new Error("Preencha todos os campos")

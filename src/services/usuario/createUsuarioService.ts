@@ -11,9 +11,11 @@ interface CreateUsuarioProps {
 export default class CreateUsuarioService {
     async execute({ usuario_nome, usuario_cpf, usuario_email, usuario_senha, administrador }: CreateUsuarioProps) {
         
-        if(!usuario_nome || !usuario_email || !usuario_cpf || !usuario_senha || !administrador) {
+        if(!usuario_nome || !usuario_email || !usuario_cpf || !usuario_senha) {
             throw new Error("Preencha todos os campos")
         }
+
+        // Retirar os IFs 
 
         let usuario;
         if(!usuario_nome || !usuario_email || !usuario_cpf || !usuario_senha){

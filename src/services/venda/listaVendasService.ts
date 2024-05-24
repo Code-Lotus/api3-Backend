@@ -1,6 +1,6 @@
 import prismaClient from "../../prisma";
 
-export default class ListVendasService {
+export default class ListaVendasService {
     async execute() {
         const vendas = await prismaClient.vendas.findMany();
 

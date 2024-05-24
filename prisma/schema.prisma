@@ -42,3 +42,11 @@ model vendas {
   @@index([produto_id], map: "produto_id")
   @@index([usuario_id], map: "usuario_id")
 }
+
+model comissoes {
+  comissao_id Int    @id @default(autoincrement())
+  cnpn        Float? @db.Float
+  cnpa        Float? @db.Float
+  capn        Float? @db.Float
+  capa        Float? @db.Float
+}
