@@ -5,12 +5,13 @@ interface CreateClienteProps {
     cliente_nome: string;
     cliente_cpfcnpj: string;
     cliente_segmento: string;
+    cliente_data: Date
 }
 
 export default class CreateClienteService {
-    async execute({ cliente_nome, cliente_cpfcnpj, cliente_segmento }: CreateClienteProps) {
+    async execute({ cliente_nome, cliente_cpfcnpj, cliente_segmento, cliente_data }: CreateClienteProps) {
 
-        if(!cliente_nome || !cliente_cpfcnpj || !cliente_segmento) {
+        if(!cliente_nome || !cliente_cpfcnpj || !cliente_segmento || !cliente_data) {
             throw new Error("Preencha todos os campos")
         }
 
@@ -18,7 +19,8 @@ export default class CreateClienteService {
             data: {
                 cliente_nome,
                 cliente_cpfcnpj,
-                cliente_segmento
+                cliente_segmento,
+                cliente_data
             }
         })
         

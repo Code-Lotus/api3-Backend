@@ -8,16 +8,18 @@ datasource db {
 }
 
 model clientes {
-  cliente_id       Int     @id @default(autoincrement())
-  cliente_nome     String? @db.VarChar(50)
-  cliente_cpfcnpj  String? @db.VarChar(15)
-  cliente_segmento String? @db.VarChar(25)
+  cliente_id       Int       @id @default(autoincrement())
+  cliente_nome     String?   @db.VarChar(50)
+  cliente_cpfcnpj  String?   @db.VarChar(15)
+  cliente_segmento String?   @db.VarChar(25)
+  cliente_data     DateTime? @db.Date
 }
 
 model produtos {
-  produto_id    Int     @id @default(autoincrement())
-  produto_nome  String? @db.VarChar(60)
-  produto_valor Float?  @db.Float
+  produto_id    Int       @id @default(autoincrement())
+  produto_nome  String?   @db.VarChar(60)
+  produto_valor Float?    @db.Float
+  produto_data  DateTime? @db.Date
 }
 
 model usuarios {
