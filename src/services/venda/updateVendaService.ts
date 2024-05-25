@@ -3,15 +3,16 @@ import prismaClient from "../../prisma";
 interface UpdateVendaProps {
     venda_id: number;
     venda_data: Date;
+    venda_forma_pagamento: string;
     cliente_id: number;
     produto_id: number;
     usuario_id: number;
 }
 
 export default class UpdateVendaService {
-    async execute({ venda_id, venda_data, cliente_id, produto_id, usuario_id }: UpdateVendaProps) {
+    async execute({ venda_id, venda_data, venda_forma_pagamento, cliente_id, produto_id, usuario_id }: UpdateVendaProps) {
 
-        if(!venda_data && !cliente_id && !produto_id && !usuario_id) {
+        if(!venda_data && !venda_forma_pagamento && !cliente_id && !produto_id && !usuario_id) {
             throw new Error("Preencha no mínimo 1 campo")
         }
 
@@ -23,6 +24,15 @@ export default class UpdateVendaService {
                 },
                 data: {
                     venda_data: venda_data
+                }
+            })
+        } if(venda_forma_pagamento) {
+            venda = await prismaClient.vendas.update({
+                where: {
+                    venda_id: venda_id
+                },
+                data: {
+                    venda_forma_pagamento: venda_forma_pagamento
                 }
             })
         } if(cliente_id) {

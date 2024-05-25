@@ -32,11 +32,12 @@ model usuarios {
 }
 
 model vendas {
-  venda_id   Int       @id @default(autoincrement())
-  venda_data DateTime? @db.Date
-  cliente_id Int?
-  produto_id Int?
-  usuario_id Int?
+  venda_id              Int       @id @default(autoincrement())
+  venda_data            DateTime? @db.Date
+  venda_forma_pagamento String?   @db.VarChar(20)
+  cliente_id            Int?
+  produto_id            Int?
+  usuario_id            Int?
 
   @@index([cliente_id], map: "cliente_id")
   @@index([produto_id], map: "produto_id")

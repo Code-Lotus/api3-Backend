@@ -17,6 +17,9 @@ import DeleteVendaController from "../controllers/venda/deleteVendaController";
 import UpdateVendaController from "../controllers/venda/updateVendaController";
 import ListaComissaoController from "../controllers/comissao/listaComissaoController";
 import UpdateComissaoController from "../controllers/comissao/updateComissaoController";
+import ListaUnicoUsuarioController from "../controllers/usuario/listaUnicoUsuarioController";
+import ListaUnicoProdutoController from "../controllers/produto/listaUnicoProdutoController";
+import ListaUnicoClienteController from "../controllers/cliente/listaUnicoClienteController";
 // import { request } from "http";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
@@ -24,6 +27,10 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     // Usuários
     fastify.get("/usuarios", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListaUsuariosController().handle(request, reply);
+    })
+
+    fastify.patch("/usuario", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListaUnicoUsuarioController().handle(request, reply);
     })
     
     fastify.post("/usuario", async (request: FastifyRequest, reply: FastifyReply) => {
@@ -64,6 +71,10 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
         return new ListaProdutoController().handle(request, reply);
     })
 
+    fastify.patch("/produto", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListaUnicoProdutoController().handle(request, reply)
+    })
+
     fastify.post("/produto", async (request: FastifyRequest, reply: FastifyReply) => {
         return new CreateProdutoController().handle(request, reply)
     })
@@ -81,6 +92,10 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     // Clientes
     fastify.get("/clientes", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListaClientesController().handle(request, reply)
+    })
+
+    fastify.patch("/cliente", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListaUnicoClienteController().handle(request, reply)
     })
 
     fastify.post("/cliente", async (request: FastifyRequest, reply: FastifyReply) => {
